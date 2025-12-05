@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "rn-avatar-app-w",
-    "slug": "rn-avatar-app-w",
+    "name": "rn-react-app-w",
+    "slug": "rn-react-app-w",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "rnavatarappw",
+    "scheme": "rnreactappw",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
