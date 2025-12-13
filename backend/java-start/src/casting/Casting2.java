@@ -6,9 +6,10 @@ public class Casting2 {
         int intValue = 0;
 
         // intValue = doubleValue; // 컴파일 오류 발생
-        intValue = (int) doubleValue; // 명시적 형변환, doubleValue 값 자체가 바뀌는 건 아님
+        intValue = (int) doubleValue; // 명시적 형변환
         System.out.println(intValue);
 
         System.out.println((int) 10.5); // 캐스팅
+        System.out.println("doubleValue = " + doubleValue); // doubleValue 값 자체가 바뀌는 건 아님
     }
 }
