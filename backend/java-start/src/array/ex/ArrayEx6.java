@@ -7,17 +7,12 @@ public class ArrayEx6 {
     public static void main(String[] args) {
         int size;
         int minNum, maxNum;
-        int temp; // 값을 교환할 때 temp임
 
-        Scanner input = new Scanner(System.in); // Scanner 타입의 input 변수에 System.in으로 받은 객체 Scanner를 넣음
-
-        System.out.print("입력받을 숫자의 개수: "); // System.out 메서드의 print() 또는 println()
+        Scanner input = new Scanner(System.in);
+        System.out.print("입력받을 숫자의 개수: ");
         size = input.nextInt();
-        // System.out.println("사이즈" + size);
 
-        // 배열은 size가 들어오고 나서 값을 넣어줘야 함!
-        int[] arr = new int[size]; // 정수 배열인 arr에 size를 크기로 하는 정수 배열 객체를 넣음
-
+        int[] arr = new int[size];
         System.out.println(size + "개의 정수를 입력: ");
         for (int i = 0; i < size; i++) {
             arr[i] = input.nextInt();
