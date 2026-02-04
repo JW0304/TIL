@@ -251,7 +251,8 @@ DB 설계
 
 **데이터베이스 시작하기2**
 - CRUD는 데이터 생성(Create) 조회(Read) 수정(Update) 삭제(Delete)를 의미한다.
-- `INSERT` 로 데이터를 추가하고 `SELECT` 로 데이터를 조회한다. `UPDATE` 로 기존 데이터를 수정하며 `DELETE` 로 데이터를 삭제한다.
+- `INSERT` 로 데이터를 추가하고 `SELECT` 로 데이터를 조회한다.
+- `UPDATE` 로 기존 데이터를 수정하며 `DELETE` 로 데이터를 삭제한다.
 - `UPDATE` 와 `DELETE` 사용 시 `WHERE` 절로 특정 데이터를 지정하는 것이 중요하다.
 
 **SQL이란?**
