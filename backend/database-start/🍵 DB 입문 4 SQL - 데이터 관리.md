@@ -72,3 +72,36 @@ REFERENCES 부모테이블(부모테이블_컬럼)
 참고
 - 데이터베이스 설계만 해도 다룰 내용이 엄청 많다
 - 하지만 여기선 일단 데이터베이스의 기본적 기능을 배우는 게 목적이다
+
+
+### DDL - 테이블 생성 2
+
+ERD(Entity Relationship Diagram)
+
+**MySQL 워크벤치로 ERD 만들기** 
+- MySQL 워크벤치 실행
+- 상단 메뉴 바에서 Database > Reverse Engineer.. 실행 (역설계)
+
+![MySQL 워크벤치 ERD](./attachments/🍵%20DB%20입문%204%20SQL%20-%20데이터%20관리-3.png)
+아이콘 색에 따라 PK, FK, 일반 컬럼(채워져 있는 건 NOT NULL) 등이 나뉜다
+
+ERD (DB 설계)
+- 실무에서는 수십, 수백 개의 테이블을 사용하게 된다
+- 까마귀발 모양은 일대다(1:N, One-to-Many) 관계를 나타낸다
+- `customers (1)` -----< `orders (N)`
+- 위의 표기법을 <u>까마귀발 표기법(Crow's Foot Notation)</u>이라고 한다
+
+`orders` 테이블은 `customers` 와 `products` 의 중간에서 두 테이블을 연결하는 중요한 역할을 하고 있다
+- **`orders` 테이블의 `customer_id` (FK)가 `customers` 테이블의 `customer_id` (PK)를 바라보고,** 
+- **`orders` 테이블의 `product_id` (FK)가 `products` 테이블의 `product_id` (PK)를 바라보는 구조다.**
+
+참고
+- 테이블 간의 연관 관계는 1:N, N:1, N:N, 1:1 같은 다양한 관계가 있다.  
+- 연관 관계와 ERD 설계에 관한 자세한 내용은 데이터베이스 설계 강의에서 다룬다.
+
+실무에서의 이름 규칙 (Best Practice)
+- 기본 규칙과 확장 규칙이 있음
+- 기본 규칙: 숫자, 영문, `_`, $, 숫자는 맨 앞에 쓸 수 없음, 예약어 불가 etc.
+- 확장 규칙: 백틱으로 감싸면 대부분 가능, 띄어쓰기, 하이픈(-), @ etc.
+- 하지만 실제로는 **영문 소문자, 밑줄(`_`)만 사용**한다 (스네이크 케이스, snake_case)
+
