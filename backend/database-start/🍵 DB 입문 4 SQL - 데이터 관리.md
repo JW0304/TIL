@@ -175,6 +175,55 @@ SET FOREIGN_KEY_CHECKS = 1; -- 활성화
 --SET XXX은 데이터베이스 접속이 연결되는 동안 유효하다. 따라서 MySQL 워크벤치 프로그램을 껐다 켜면 다시 설정해줘야 한다.
 ```
 
+### 22강. DML - 데이터 등록
+
+실무에서 가장 많이 사용하는 명령어들이다. `INSERT`, `UPDATE`, `DELETE`를 깊이 있게 알아보자.
+#### INSERT - 행 생성
+
+행을 생성하는 방법은 세 가지가 있다
+
+```sql
+-- 방법 1. 컬럼 지정하지 않고, 모든 열에 대한 데이터 추가하기
+INSERT INTO customers 
+VALUES (NULL, '강감찬', 'kkc@email.com', 'password123', '서울시 동작구', '2026-02-06 18:58:30');
+
+INSERT INTO customers 
+VALUES (NULL, '이순신', 'lss@email.com', 'password456', '서울시 관악구', '2026-02-06 18:59:50')
+
+-- 방법 2. 컬럼 지정하기, 선택한 열에 대한 데이터 추가하기
+INSERT INTO customers (name, email, password, address)
+VALUES ('세종대왕', 'sj@email.com', 'password789', '서울시 종로구');
+
+INSERT INTO products (name, price, stock_quantity)
+VALUES ('베이직 반팔 티셔츠', 19900, 200);
+
+-- 방법 2에 대해서
+실무에서 가장 흔하게 사용하는 방식이다!
+왜냐하면 방법1은 나중에 열이 추가/수정될 경우 오류를 일으킬 수 있기 때문이다
+따라서 방법2로 열 목록을 명시적으로 넣는 게 안전하고 좋은 방법이다
+
+-- 빠진 열
+- 기본적으로는 null이 들어가게 됨, default 값이 있으면 기본값 들어감
+- customer_id 자동으로 지정(auto_increment)
+- join_date(datetime)도 자동으로 현재 시간이 저장되었음(null, default current_timestamp로 지정된 컬럼)
+
+-- 방법 3. 한 번에 등록하기
+INSERT INTO products (name, price, stock_quantity)
+VALUES 
+('검정 양말', 3000, 500),
+('회색 양말', 3000, 500),
+('흰색 양말', 3000, 500);
+
+```
+customer_id는 NULL로 넣어도 auto_increment 된다
+
+```sql
+-- (복습) 조회 - 테이블 구조, 테이블 데이터
+desc customers;
+select * from customers;
+```
+혼자 간단하게 실행할 때는 소문자로 쭉 작성해도 된다 ❗
+
 ---
 추가
 
